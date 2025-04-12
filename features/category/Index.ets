@@ -1,1 +1,1 @@
-export { add } from './src/main/ets/utils/Calc';
+export { CategoryView } from "./src/main/ets/view/CategoryView"

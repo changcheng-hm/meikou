@@ -74,8 +74,8 @@
       ]
     },
     {
-      "name": "package",
-      "srcPath": "./features/package",
+      "name": "cart",
+      "srcPath": "./features/cart",
       "targets": [
         {
           "name": "default",
