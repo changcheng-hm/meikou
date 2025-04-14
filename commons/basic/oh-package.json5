@@ -8,7 +8,8 @@
   "packageType": "InterfaceHar",
   "dependencies": {
     "@ohos/axios": "^2.2.6",
-    "@abner/log": "^1.0.5"
+    "@abner/log": "^1.0.5",
+    "@ohmos/sku": "^1.0.1"
   },
   "devDependencies": {},
   "dynamicDependencies": {}
