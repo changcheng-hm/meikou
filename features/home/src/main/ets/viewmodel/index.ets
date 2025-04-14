@@ -1,4 +1,4 @@
-import { HmSku, HmSpec, MkGoodsItem } from '@mk/basic';
+import { HmSku, HmSpec, MkGoodsItem } from 'basic';
 
 export interface Banner {
   id: string;
@@ -34,17 +34,12 @@ export interface GoodsItems {
   pageSize: number;
 }
 
-class BasicDataSource implements IDataSource {
+abstract class BasicDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
-  private originDataArray: object[] = [];
 
-  public totalCount(): number {
-    return 0;
-  }
+  public abstract totalCount(): number;
 
-  public getData(index: number): object {
-    return this.originDataArray[index];
-  }
+  public abstract getData(index: number): object;
 
   // 该方法为框架侧调用，为LazyForEach组件向其数据源处添加listener监听
   registerDataChangeListener(listener: DataChangeListener): void {
@@ -99,7 +94,7 @@ class BasicDataSource implements IDataSource {
   }
 }
 
-export class MKDataSource extends BasicDataSource {
+export class GoodsItemsDataSource extends BasicDataSource {
   private dataArray: object[] = [];
 
   public totalCount(): number {
@@ -124,6 +119,7 @@ export class MKDataSource extends BasicDataSource {
     this.notifyDataAdd(this.dataArray.length - 1);
   }
 
+  // 数据直接重新赋值
   public reloadData(data: object[]) {
     this.dataArray = data
     this.notifyDataReload()
