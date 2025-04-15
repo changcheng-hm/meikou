@@ -9,5 +9,6 @@
       "2in1"
     ],
     "deliveryWithInstall": true,
+    "routerMap": "$profile:route_map"
   }
 }

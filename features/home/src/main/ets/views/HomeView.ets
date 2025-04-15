@@ -33,6 +33,8 @@ export struct HomeView {
   @State isLoading: boolean = false
   // 下拉刷新
   @State isRefresh: boolean = false
+
+  @Consume pageStack: NavPathStack
   //
   // // 生成模拟数据
   // mockData() {
@@ -142,6 +144,8 @@ export struct HomeView {
       this.recommendGoodsLazy.reloadData(resArr[6].value.data.result as MkGoodsItem[])
       // this.recommendGoods = resArr[6].value.data.result as MkGoodsItem[]
     }
+    // 保存分类数据
+    AppStorage.setOrCreate('categoryData', this.categories)
   }
 
   // 滚动触底，加载更多，在 onReachEnd 中调用
@@ -282,6 +286,9 @@ export struct HomeView {
                 .padding({ left: 12 })
               }
               .padding({ left: 16, right: 16, top: this.safeTop })
+              .onClick(() => {
+                this.pageStack.pushPathByName('SearchView', null)
+              })
             }
             .width('100%')
 

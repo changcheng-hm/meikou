@@ -1,1 +1,1 @@
-export { HomeView } from './src/main/ets/view/HomeView'
+export { HomeView } from './src/main/ets/views/HomeView'
