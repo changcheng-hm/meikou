@@ -32,3 +32,5 @@ export class EmitterKey {
   // 更新地址
   static REFRESH_ADDRESS: emitter.InnerEvent = { eventId: 10003 }
 }
+
+export const CartKey: string = 'cartCount'

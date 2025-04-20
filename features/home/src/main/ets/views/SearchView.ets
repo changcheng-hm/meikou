@@ -1,7 +1,9 @@
-import { Logger } from 'basic';
-import { window, KeyboardAvoidMode } from '@kit.ArkUI'
+import { Logger, permissionPlugin } from 'basic';
+import { window, KeyboardAvoidMode, promptAction } from '@kit.ArkUI'
 import { searchGoodsApi } from '../api';
-import { AudioSearchComp } from '../components/AudioSearchComp';
+import { AudioSearchComp, VoiceState } from '../components/AudioSearchComp';
+import { speechRecognizer } from '@kit.CoreSpeechKit';
+import { audio } from '@kit.AudioKit';
 
 // 1.1 子页的入口函数，必须以 @Builder 修饰
 @Builder
@@ -20,7 +22,14 @@ export struct SearchView {
   @State keyword: string = ''
   @Consume pageStack: NavPathStack
 
-  aboutToAppear(): void {
+  async aboutToAppear() {
+    const isOk = await permissionPlugin.requestPermissions(['ohos.permission.MICROPHONE'])
+    if(!isOk) {
+      const isOk2 = await permissionPlugin.requestPermissionOnSetting(['ohos.permission.MICROPHONE'])
+      if (!isOk2) {
+        promptAction.showToast({message: 'no microphone permission'})
+      }
+    }
     window.getLastWindow(getContext())
       .then((win) => {
         win.setWindowSystemBarProperties({ statusBarContentColor: '#FFFFFF' })

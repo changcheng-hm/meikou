@@ -1,0 +1,19 @@
+{
+  "routerMap": [
+    {
+      "name": "RecommendView",
+      "pageSourceFile": "src/main/ets/views/RecommendView.ets",
+      "buildFunction": "RecommendViewBuilder"
+    },
+    {
+      "name": "LoginView",
+      "pageSourceFile": "src/main/ets/views/LoginView.ets",
+      "buildFunction": "LoginViewBuilder"
+    },
+    {
+      "name": "SettingsView",
+      "pageSourceFile": "src/main/ets/views/SettingView.ets",
+      "buildFunction": "SettingsViewBuilder"
+    }
+  ]
+}

@@ -31,7 +31,7 @@ class PermissionPlugin {
     const atManager = abilityAccessCtrl.createAtManager();
     const res = await atManager.requestPermissionsFromUser(getContext(), permissions) // 首次
     const isAuth = res.authResults.every(item => item === abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED)
-    return isAuth ? Promise.resolve() : Promise.reject()
+    return isAuth
   }
 
   // 二次向用户申请授权
@@ -39,7 +39,7 @@ class PermissionPlugin {
     const atManager = abilityAccessCtrl.createAtManager();
     const grantStatus = await atManager.requestPermissionOnSetting(getContext(), permissions) // 二次
     const isAuth = grantStatus.every(item => item === abilityAccessCtrl.GrantStatus.PERMISSION_GRANTED)
-    return isAuth ? Promise.resolve() : Promise.reject()
+    return isAuth
   }
 }
 

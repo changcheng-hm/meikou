@@ -17,9 +17,15 @@
         "name": "ohos.permission.INTERNET"
       },
       {
-        "name": "ohos.permission.MICROPHONE", // 权限名称
-        "reason": "$string:app_name",  // 申请原因
-        "usedScene": {} // 使用场景
+        "name": "ohos.permission.MICROPHONE",
+        // 权限名称
+        "reason": "$string:app_name",
+        // 申请原因
+        "usedScene": {}
+        // 使用场景
+      },
+      {
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
       }
     ],
     "abilities": [
@@ -55,6 +61,19 @@
           {
             "name": "ohos.extension.backup",
             "resource": "$profile:backup_config"
+          }
+        ]
+      },
+      {
+        "name": "PhoneFormAbility",
+        "srcEntry": "./ets/phoneformability/PhoneFormAbility.ets",
+        "label": "$string:PhoneFormAbility_label",
+        "description": "$string:PhoneFormAbility_desc",
+        "type": "form",
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config"
           }
         ]
       }
