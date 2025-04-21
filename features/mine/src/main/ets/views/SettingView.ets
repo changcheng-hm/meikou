@@ -1,4 +1,4 @@
-import { auth, KEY, MkCell, MkCellGroup, MkNavbar, MkUser } from 'basic'
+import { auth, MkCell, MkCellGroup, MkNavbar, MkUser } from 'basic'
 
 @Builder
 function SettingsViewBuilder() {
@@ -10,7 +10,7 @@ function SettingsViewBuilder() {
 
 @Component
 export struct SettingsView {
-  @StorageProp(KEY) user: MkUser = {} as MkUser
+  @StorageProp(auth.KEY) user: MkUser = {} as MkUser
   @Consume pageStack: NavPathStack
 
   @Builder
@@ -53,6 +53,9 @@ export struct SettingsView {
 
           MkCellGroup() {
             MkCell({ label: '收货地址管理' })
+              .onClick(() => {
+                this.pageStack.pushPathByName('AddressManageView', null)
+              })
             MkCell({ label: '账号安全' })
             MkCell({ label: '消息设置' })
             MkCell({ label: '隐私设置' })

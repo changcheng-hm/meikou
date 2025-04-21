@@ -1,0 +1,9 @@
+{
+  "routerMap": [
+    {
+      "name": "CartView",
+      "pageSourceFile": "src/main/ets/view/CartView.ets",
+      "buildFunction": "CartViewBuilder"
+    }
+  ]
+}

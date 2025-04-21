@@ -6,7 +6,6 @@ import {
   BreakpointConstants,
   FormIdManager,
   getGuessLikeApi,
-  KEY,
   LoadImageForFormData, Logger, MkGoodsItem, MKNavPathStack } from 'basic';
 import { deviceInfo } from '@kit.BasicServicesKit';
 import { rpc } from '@kit.IPCKit';
@@ -138,7 +137,7 @@ export default class EntryAbility extends UIAbility {
       AppStorage.setOrCreate<number>('safeBottom', px2vp(bottom.height))
     }
     // 把 AppStorage 的用户信息进行持久化 UI 状态存储，状态改变会自动同步到本地磁盘
-    PersistentStorage.persistProp(KEY, { });
+    // PersistentStorage.persistProp(auth.KEY, {});
     windowStage.loadContent('pages/Index', (err) => {
       // 持久化存储用户信息
       auth.initUser()

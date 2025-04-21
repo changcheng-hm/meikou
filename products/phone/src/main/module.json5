@@ -26,6 +26,13 @@
       },
       {
         "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
+      },
+      {
+        "name": "ohos.permission.APPROXIMATELY_LOCATION",
+        // 权限名称
+        "reason": "$string:app_name",
+        // 申请原因
+        "usedScene": {}
       }
     ],
     "abilities": [

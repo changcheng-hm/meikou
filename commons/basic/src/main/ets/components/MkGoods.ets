@@ -1,4 +1,3 @@
-import { Logger } from '../../../../Index';
 import { MkGoodsItem } from '../viewmodel'
 
 @Reusable
@@ -12,19 +11,19 @@ export struct MkGoods {
 
   aboutToReuse(params: Record<string, Object>): void {
     this.goods = params.goods as MkGoodsItem
-    Logger.debug('Reuse')
+    // Logger.debug('Reuse')
   }
 
   aboutToRecycle(): void {
-    Logger.debug('Recycle')
+    // Logger.debug('Recycle')
   }
 
   aboutToAppear(): void {
-    Logger.debug('Appear')
+    // Logger.debug('Appear')
   }
 
   aboutToDisappear(): void {
-    Logger.debug('Disappear')
+    // Logger.debug('Disappear')
   }
 
   build() {

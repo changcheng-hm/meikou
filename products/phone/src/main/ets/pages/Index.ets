@@ -1,4 +1,4 @@
-import { auth, BreakpointConstants, BreakPointType, CartKey, EmitterKey, MKNavPathStack } from 'basic';
+import { auth, BreakpointConstants, BreakPointType, cart, CartKey, EmitterKey, MKNavPathStack } from 'basic';
 import { emitter } from '@kit.BasicServicesKit';
 import { CategoryView } from 'category';
 import { HomeView } from 'home';
@@ -32,6 +32,27 @@ struct Index {
   @StorageProp(CartKey)
   count: number = 0;
   tabsController = new TabsController();
+  @StorageProp(cart.CartKey) cartCount: number = 0
+
+  // 注册 emmiter
+  registerEvent() {
+    // 订阅事件
+    emitter.on(EmitterKey.CHANGE_TAB, (eventData) => {
+      this.activeIndex = eventData.data?.index || 0  // 不传值也能回首页
+    })
+  }
+
+  aboutToAppear(): void {
+    this.registerEvent()
+  }
+
+  onPageShow(): void {
+    // 获取购物车数量
+    if (auth.getUser()
+      .token) {
+      cart.count()
+    }
+  }
 
   @Builder
   TabItemBuilder(item: TabItem, index: number) {

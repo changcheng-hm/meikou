@@ -83,3 +83,5 @@ export interface AddressItem {
   cityCode: number
   countyCode: number
 }
+
+

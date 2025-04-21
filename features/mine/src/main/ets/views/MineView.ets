@@ -1,10 +1,10 @@
-import { KEY, MkGuess, MkUser } from 'basic';
+import { auth, MkGuess, MkUser } from 'basic';
 
 @Component
 export struct MineView {
   @StorageProp('safeTop') safeTop: number = 0
-  @StorageProp(KEY)
-  user: MkUser = {} as MkUser
+  // 通过 AppStorage 获取用户信息
+  @StorageProp(auth.KEY) user: MkUser = {} as MkUser
   @Consume pageStack: NavPathStack
 
   build() {

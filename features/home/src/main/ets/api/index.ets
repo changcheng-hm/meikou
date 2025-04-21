@@ -1,6 +1,6 @@
 import { CategoryItem, MkGoodsItem, RequestAxios } from 'basic'
 // 数据类型已经提供好了
-import { Banner, HotResult, SearchResult } from '../viewmodel/index'
+import { Banner, Goods, HotResult, SearchResult } from '../viewmodel/index'
 import { SearchParams } from '../views/SearchResultView';
 
 export const getBannerApi = () => {
@@ -53,4 +53,12 @@ export const getRecommendApi = (limit: number = 8) => {
 export const searchGoodsApi = (data: SearchParams) => {
   // 发起POST请求到搜索接口，携带分页参数和搜索条件
   return RequestAxios.post<SearchResult>('/search/all', data)
+}
+
+export const getGoodsApi = (id: string) => {
+  return RequestAxios.get<Goods>('/goods', {
+    params: {
+      id
+    }
+  })
 }
